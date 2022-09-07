@@ -82,7 +82,10 @@ const BlogsFilter = () => {
                 </Select>
             </FormControl>
 
-            <BlogList blogList={titleFilteredBlogs} />
+            <BlogList
+                blogList={titleFilteredBlogs}
+                isListLoaded={blogCtx.isLoaded}
+            />
         </div>
     );
 };

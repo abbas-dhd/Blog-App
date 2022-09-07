@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 import { getBlogs, createBlog } from "../api/blog-api";
 import BlogContext from "./blogs-context";
 
@@ -21,9 +21,11 @@ const BlogContextProvider = (props) => {
         blogsReducer,
         defaultState
     );
+    const [isLoaded, setIsLoaded] = useState(false);
 
     const fetchBlog = async () => {
         let blogs = await getBlogs();
+        setIsLoaded(true);
         dispatchBlogAction({ type: "FETCH", data: blogs });
     };
 
@@ -39,6 +41,7 @@ const BlogContextProvider = (props) => {
 
     const blogCtx = {
         blogs: blogList,
+        isLoaded: isLoaded,
         getBlogs: fetchBlog,
         addBlog: createNewBlog,
     };

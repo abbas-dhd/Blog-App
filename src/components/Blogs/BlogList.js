@@ -1,5 +1,6 @@
 import BlogItem from "./BlogItem";
 import Grid from "@mui/material/Grid";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const BlogList = (props) => {
     const blogList = props.blogList;
@@ -14,7 +15,15 @@ const BlogList = (props) => {
             );
         });
     } else {
-        return <h3 style={{ textAlign: "center" }}>No Blogs Found</h3>;
+        return (
+            <h3 style={{ textAlign: "center" }}>
+                {props.isListLoaded ? (
+                    <h3 style={{ textAlign: "center" }}>No Blogs Found</h3>
+                ) : (
+                    <CircularProgress />
+                )}
+            </h3>
+        );
     }
     return (
         <Grid container spacing={2}>
