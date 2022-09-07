@@ -1,0 +1,14 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    font-family: "Roboto";
+    color: #004257;
+    background-color: #ddf7ff;
+}
