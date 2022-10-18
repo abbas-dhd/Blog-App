@@ -26,7 +26,7 @@ const BlogList = (props) => {
         );
     }
     return (
-        <Grid container spacing={2}>
+        <Grid container spacing={2} sx={{ p: "1rem" }}>
             {blogListContent}
         </Grid>
     );
